@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CarEventsController;
 use App\Http\Controllers\CarsController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,3 +23,9 @@ Route::get('/', function () {
 Route::get('/cars', [CarsController::class, 'index']);
 
 Route::get('/carEvents', [CarEventsController::class, 'index']);
+
+// Show Register/Create Form
+Route::get('/register', [UserController::class, 'create']);
+
+// Create New User
+Route::post('/users', [UserController::class, 'store']);
