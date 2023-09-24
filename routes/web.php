@@ -20,9 +20,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+//Show Cars
 Route::get('/cars', [CarsController::class, 'index']);
 
+// Show Car Events
 Route::get('/carEvents', [CarEventsController::class, 'index']);
+
+//Create New Car
+Route::get('/cars/create', [CarsController::class, 'create']);
 
 // Show Register/Create Form
 Route::get('/register', [UserController::class, 'create']);
