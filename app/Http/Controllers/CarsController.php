@@ -12,12 +12,16 @@ class CarsController extends Controller
      */
     public function index()
     {
-        //
-        return view('cars.index',[
-            'cars' => Cars::get()
-        ]);
+       
+        $searchTerm = request('search');
+
+        // Use the query builder to perform the search and paginate the results
+        $cars = Cars::search($searchTerm)->paginate(2); // Adjust the number of items per page as needed
+
+        return view('cars.index', ['cars' => $cars]);
     }
 
+   
     /**
      * Show the form for creating a new resource.
      */
@@ -33,6 +37,17 @@ class CarsController extends Controller
     public function store(Request $request)
     {
         //
+        $formFields = $request->validate([
+            'make' => 'required',
+            'model' => 'required',
+            'price' => 'required',
+            'year' => 'required'
+        ]);
+
+        // Create User
+        $user = Cars::create($formFields);
+
+        return redirect('/cars');
     }
 
     /**
@@ -41,6 +56,9 @@ class CarsController extends Controller
     public function show(Cars $cars)
     {
         //
+        return view ('cars.show',[
+            'car' => $cars
+        ]);
     }
 
     /**

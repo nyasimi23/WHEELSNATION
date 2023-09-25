@@ -31,7 +31,7 @@ class UserController extends Controller
         // Login
         auth()->login($user);
 
-        return redirect('/')->with('message', 'User created and logged in');
+        return redirect('/cars')->with('message', 'User created and logged in');
     }
 
 
@@ -44,8 +44,8 @@ class UserController extends Controller
         return view('users.login');
     }
 
-      // Authenticate User
-      public function authenticate(Request $request) {
+    // Authenticate User
+    public function authenticate(Request $request) {
         $formFields = $request->validate([
             'email' => ['required', 'email'],
             'password' => 'required'
@@ -54,10 +54,10 @@ class UserController extends Controller
         if(auth()->attempt($formFields)) {
             $request->session()->regenerate();
 
-            return redirect('/')->with('message', 'You are now logged in!');
+            return redirect('/cars')->with('message', 'You are now logged in!');
         }
 
-        // return back()->withErrors(['email' => 'Invalid Credentials'])->onlyInput('email');
+        return back()->withErrors(['email' => 'Invalid Credentials'])->onlyInput('email');
     }
 
 }
