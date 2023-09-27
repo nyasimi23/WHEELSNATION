@@ -5,15 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class CarEvents extends Model
+class Comment extends Model
 {
     use HasFactory;
 
 
-    
-
-    public function comments()
+    public function commentable()
 {
-    return $this->morphMany(Comment::class, 'commentable');
+    return $this->morphTo();
 }
 }

@@ -16,7 +16,7 @@ class CarsController extends Controller
         $searchTerm = request('search');
 
         // Use the query builder to perform the search and paginate the results
-        $cars = Cars::search($searchTerm)->paginate(2); // Adjust the number of items per page as needed
+        $cars = Cars::search($searchTerm)->paginate(5); // Adjust the number of items per page as needed
 
         return view('cars.index', ['cars' => $cars]);
     }

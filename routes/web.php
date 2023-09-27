@@ -3,6 +3,7 @@
 use App\Http\Controllers\CarEventsController;
 use App\Http\Controllers\CarsController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\CommentController;
 use App\Models\Cars;
 use Illuminate\Support\Facades\Route;
 
@@ -51,3 +52,11 @@ Route::get('/login', [UserController::class, 'login']);
 
 // Log In User
 Route::post('/users/authenticate', [UserController::class, 'authenticate']);
+
+
+
+//Store and Delete comments
+Route::resource('comments', CommentController::class)
+->only(['store', 'destroy']);
+
+// Route::post('comments' , [CommentController::class , 'store']);

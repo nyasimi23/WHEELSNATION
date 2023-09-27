@@ -18,4 +18,10 @@ class Cars extends Model
                 ->orWhere('model', 'like', "%$searchTerm%");
         });
     }
+
+
+    public function comments()
+{
+    return $this->morphMany(Comment::class, 'commentable');
+}
 }
