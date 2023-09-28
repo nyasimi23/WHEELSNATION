@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Contracts\Auth\CanResetPassword;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class User extends Authenticatable
 {
@@ -43,4 +44,16 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    // Relationship with cars
+    public function cars(){
+
+        return $this->HasMany(Cars::class, 'user_id');
+    }
+
+    // Relationship with CarEvents
+    public function carEvents(){
+
+        return $this->HasMany(CarEvents::class, 'user_id');
+    }
 }

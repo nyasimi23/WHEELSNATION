@@ -40,6 +40,9 @@ class CarEventsController extends Controller
     public function show(CarEvents $carEvents)
     {
         //
+        return view ('CarEvents.show',[
+            'carEvent' => $carEvents
+        ]);
     }
 
     /**

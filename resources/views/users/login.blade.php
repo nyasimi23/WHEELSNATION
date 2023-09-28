@@ -27,6 +27,11 @@
         Sign In
       </button>
     </div>
+    <div>
+      <button>
+        <a href="/">BACK</a>
+      </button>
+    </div>
 
     <div class="mt-8">
       <p>

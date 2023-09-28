@@ -24,4 +24,9 @@ class Cars extends Model
 {
     return $this->morphMany(Comment::class, 'commentable');
 }
+
+    // Relationship to User
+    public function user() {
+        return $this->belongsTo(User::class, 'user_id');
+    }
 }

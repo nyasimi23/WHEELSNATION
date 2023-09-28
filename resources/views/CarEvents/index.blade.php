@@ -1,7 +1,8 @@
 @foreach ($carEvents as $carEvent)
 
 <h1>
-    {{$carEvent['event_name']}}
+    <a href="/carEvents/{{$carEvent->id}}"> {{$carEvent['event_name']}}</a>
+   
 </h1>
 
 <p>

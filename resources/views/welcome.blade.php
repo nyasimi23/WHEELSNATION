@@ -14,3 +14,9 @@
         <a href="/login">REGISTER</a>
     </button>
 </div>
+
+<div>
+    <button>
+        <a href="/cars/create">Create Post</a>
+    </button>
+</div>

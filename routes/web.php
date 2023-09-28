@@ -29,13 +29,16 @@ Route::get('/cars', [CarsController::class, 'index']);
 Route::get('/carEvents', [CarEventsController::class, 'index']);
 
 //Show Create Form for New Car 
-Route::get('/cars/create', [CarsController::class, 'create']);
+Route::get('/cars/create', [CarsController::class, 'create'])->middleware('auth');
 
 // Creat New Car
-Route::post('/cars' , [CarsController::class ,'store']);
+Route::post('/cars' , [CarsController::class ,'store'])->middleware('auth');
 
-// Single Listing
+// Single  Car Listing
 Route::get('/cars/{cars}', [CarsController::class, 'show']);
+
+// Single CarEvent Listing
+Route::get('/carEvents/{carEvents}', [CarEventsController::class, 'show']);
 
 // Show Register/Create Form
 Route::get('/register', [UserController::class, 'create']);
@@ -43,12 +46,13 @@ Route::get('/register', [UserController::class, 'create']);
 // Create New User
 Route::post('/users', [UserController::class, 'store']);
 
+
+
 // Log User Out
-
-
+Route::post('/logout', [UserController::class, 'logout'])->middleware('auth');
 
 // Show Login Form
-Route::get('/login', [UserController::class, 'login']);
+Route::get('/login', [UserController::class, 'login'])->name('login')->middleware('guest');
 
 // Log In User
 Route::post('/users/authenticate', [UserController::class, 'authenticate']);
