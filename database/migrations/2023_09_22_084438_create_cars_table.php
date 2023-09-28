@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('price');
             $table->string('year');
             $table->timestamps();
+
+
         });
     }
 

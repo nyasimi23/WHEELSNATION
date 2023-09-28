@@ -47,6 +47,10 @@ class CarsController extends Controller
         // Create User
         $user = Cars::create($formFields);
 
+
+        $formFields['user_id'] = auth()->id();
+
+
         return redirect('/cars');
     }
 

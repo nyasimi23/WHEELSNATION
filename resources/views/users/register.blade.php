@@ -1,4 +1,4 @@
-<form method="POST" action="/users">
+<form method="POST" action="/cars">
     @csrf
     <div class="mb-6">
       <label for="name" class=""> Name </label>

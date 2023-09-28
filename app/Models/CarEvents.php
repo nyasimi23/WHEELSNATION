@@ -10,12 +10,7 @@ class CarEvents extends Model
     use HasFactory;
 
 
-    
 
-    public function comments()
-{
-    return $this->morphMany(Comment::class, 'commentable');
-}
 
     // Relationship to User
     public function user() {

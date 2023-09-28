@@ -20,10 +20,7 @@ class Cars extends Model
     }
 
 
-    public function comments()
-{
-    return $this->morphMany(Comment::class, 'commentable');
-}
+ 
 
     // Relationship to User
     public function user() {
